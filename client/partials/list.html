@@ -1,0 +1,18 @@
+<div ng-controller = "ListController">
+  Search Friends: <input type="text" ng-model="filter_name">
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Show</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+    <tr ng-repeat="friend in friends | orderBy:'last_name' | filter:filter_name">
+      <td>{{friend.firstname}} {{friend.lastname}}</td>
+      <td><button ng-click='showFriend(friend._id)' type="button">Show</button></td>
+      <td><button ng-click='updateFriend(friend._id)' type="button">Update</button></td>
+      <td><button ng-click='deleteFriend(friend._id)' type="button">Delete</button></td>
+    </tr>
+  </table>
+  <button type="button" ng-click='createFriend()'>New Friend</button>
+</div>
